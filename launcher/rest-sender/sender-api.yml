@@ -1,0 +1,81 @@
+sender-api:
+  port: 8000
+
+template:
+  - type: html
+    dynamic: false
+    dir: ./htmlTemplate
+  - key: verify-code
+    type: text
+    dynamic: true
+    text: "【济南】您的验证码是{{.code}},{{.expire}}分钟内有效"
+
+sms:
+  group:
+    verify: fungo-code
+    promotion: fungo-promotion
+  message:
+    verify-code: verify
+
+  senders:
+    fungo-code:
+      type: fungo
+      address: http://qxt.fungo.cn/Recv_center
+      username: tjhy
+      password: tj01
+    fungo-promotion:
+      type: fungo
+      address:
+      username:
+      password:
+    mockup:
+      type: mockup
+
+  template:
+
+email:
+  group:
+    system: system
+    news: system
+
+  sender:
+    system:
+      type: smtp
+      name: "济南金宝塑业有限公司"
+      host: "smtp.exmail.qq.com"
+      endpoint: "smtp.exmail.qq.com:587"
+      address: "system@letsit.cn"
+      password: "bkdnajEsXeNyBjgsbMOw0"
+
+  template:
+    verify-code:
+      type: html
+      dynamic: true
+    welcome:
+      type: html
+    denial-letter-cn:
+      type: html
+      title: "感谢您的注册"
+    denial-letter-en:
+      type: html
+      title: "Thanks for registering egg donation"
+    reset-password-en:
+      type: html
+      dynamic: true
+      title: "reset password"
+    reset-password-cn:
+      type: html
+      dynamic: true
+      title: "密码重置"
+
+sender:
+  htmlTemplateDir: ./htmlTemplate
+
+#message:
+#  verify-code:
+#    - type: sms
+#      sender: fungo-code
+#  welcome-letter:
+#    - type: email
+#      template: welcome
+#      sender: rd@letsit.cn

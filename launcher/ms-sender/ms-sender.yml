@@ -1,0 +1,40 @@
+registry:
+  consul:
+    base: letsit
+    client: localhost:8973
+    server: localhost:8500
+
+sender:
+  sms:
+    default: mockup
+    senders:
+      fungo-code:
+        type: fungo
+        address: http://qxt.fungo.cn/Recv_center
+        username: tjhy
+        password: tj01
+      fungo-promotion:
+        type: fungo
+        address:
+        username:
+        password:
+      mockup:
+        type: mockup
+    #      aliDayu:
+    #        type: aliDayuSMS
+    #        address:
+    #        username:
+    #        password:
+    templates:
+      verify-code:
+        text: "【上海拓晶】您的验证码是{{.code}},{{.expire}}分钟内有效"
+        senderName: fungo-code
+
+  email:
+#    default: sendcloud
+#    senders:
+#      sendcloud:
+#        type: sendcloud
+#        address:
+#        username:
+#        password:
