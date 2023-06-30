@@ -41,8 +41,8 @@ email:
   sender:
     system:
       type: smtp
-      name: "济南金宝塑业有限公司"
-      host: "smtp.exmail.qq.com"
+      name: ""
+      host: "541743315@qq.com"
       endpoint: "smtp.exmail.qq.com:587"
       address: "system@letsit.cn"
       password: "bkdnajEsXeNyBjgsbMOw0"
